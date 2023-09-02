@@ -25,7 +25,7 @@ app.get("/", (req,res) => {
    res.json({message: 'hello world!'})
 });
 
-const PORT = process.env.PORT ||  8080;
+const PORT = process.env.PORT ||  8090;
 
 app.listen(PORT, () => {
     console.log(` Server funcionando na porta ${PORT}.`);    

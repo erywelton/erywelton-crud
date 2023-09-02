@@ -22,5 +22,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,
     db.Sequelize = Sequelize;
     db.sequelize = sequelize;
 
+    db.items = require("./item.models.js")(sequelize, Sequelize);
+
     module.exports = db;
     
