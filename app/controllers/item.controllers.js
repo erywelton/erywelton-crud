@@ -1,5 +1,5 @@
     const db = require("../models");
-    const Item = db.item;
+    const Item = db.items;
     const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
@@ -23,7 +23,7 @@ const item = {
         .then(data => {
             res.send(data);
         })
-        .cath(err => {
+        .catch(err => {
             res.status(500).send({
                 Message:
                 err.Message || "Ocorreu um erro ao criar o item."
@@ -36,11 +36,11 @@ exports.findAll = (req, res) => {
         var condition = name ? {
             name: { [Op.like]: `%${name}% `}} : null;
 
-    items.findAll({ where: condition})
+        Item.findAll({ where: condition})
         .then(data => {
             res.send(data);
         })
-        .cath(err => {
+        .catch(err => {
             res.status(500).send({
                 Message:
                 err.Message || "Ocorreu um erro ao listar os itens."
